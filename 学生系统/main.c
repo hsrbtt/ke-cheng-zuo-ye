@@ -4,10 +4,10 @@
 int main(int argc, char *argv[]) {
 	struct node*head=malloc(sizeof(struct node));//创建头节点 
 	head->next=NULL;
-	readstudent(head);//读取存储的学生信息 
 	node*p;
 	int n;
-	n=1;
+	n=login();
+	readstudent(head);//读取存储的学生信息 
 	while(n!=0){	
 	output();
 	char c=getch();//能避免使用getchar时吞回车 
@@ -216,4 +216,25 @@ node *readstudent(node*head){//读取学生信息
 	 fclose(file);
 	 return head;//将存放读取的数据的地址返回 
 } 
- 
+ int login(){//实现简单登录 
+    struct account user;
+	char id[20];
+	char an[20];
+	int n;
+	n=0;
+	strcpy(user.id,"yuanshen");
+	strcpy(user.an,"qidong!");//初始化账号密码 
+	while(n==0){
+	printf("输入账号\n");
+	gets(id);
+	printf("输入密码\n");
+	gets(an); 
+	if(strcmp(id,user.id)==0&&strcmp(an,user.an)==0){//判断密码账号是否正确 
+		n=1;
+		return n;
+	}
+	if(n==0){
+		printf("失败\n");
+		printf("请重新输入\n");
+	}}
+ }
